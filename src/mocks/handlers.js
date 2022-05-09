@@ -34,4 +34,22 @@ export const handlers = [
       })
     );
   }),
+
+  rest.get("/latestProducts", (req, res, ctx) => {
+    const dummyData = [];
+    for (let i = 0; i < 50; i++) {
+      dummyData[i] = {
+        name: "dummy",
+        image: "dummy-image",
+        price: "dummy-price",
+        time: "2022-05-09T14:58:04+09:00",
+      };
+    }
+    return res(
+      ctx.status(200),
+      ctx.json({
+        data: dummyData,
+      })
+    );
+  }),
 ];
