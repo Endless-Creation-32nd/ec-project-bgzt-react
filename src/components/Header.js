@@ -76,14 +76,14 @@ function Header() {
         </div>
       </div>
 
-      <div className="main">
+      <div className="header-main">
         <div className="main-items">
           <img src={logo} alt="번개장터 로고" />
           <div className="search-bar">
             <input
               className="search-text"
               type="text"
-              placeholder="상품명, 지역명, @상점명 입력"
+              placeholder="상품명 입력"
             />
             <a href="/">
               <img
@@ -107,21 +107,19 @@ function Header() {
         </div>
       </div>
 
-      <div className="category">
-        <div className="category-bar">
-          <img
-            src={isCategoryHover ? menuIconHover : menuIcon}
-            alt="카테고리 아이콘"
-            width="20"
-            height="16"
-            onMouseEnter={() => {
-              setIsCategoryHover(true);
-            }}
-            onMouseLeave={() => {
-              setIsCategoryHover(false);
-            }}
-          />
-        </div>
+      <div className="bottom-bar">
+        <img
+          src={isCategoryHover ? menuIconHover : menuIcon}
+          alt="카테고리 아이콘"
+          width="20"
+          height="16"
+          onMouseEnter={() => {
+            setIsCategoryHover(true);
+          }}
+          onMouseLeave={() => {
+            setIsCategoryHover(false);
+          }}
+        />
       </div>
     </header>
   );

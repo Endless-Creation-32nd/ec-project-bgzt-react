@@ -1,2 +1,17 @@
-@import "../reset.css";
-@import "../common.css";
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main h2 {
+  width: 1024px;
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+}
+.card-wrapper {
+  width: 1024px;
+  display: flex;
+  flex-wrap: wrap;
+}

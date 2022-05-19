@@ -1,0 +1,9 @@
+.card {
+  width: 196px;
+  margin-right: 11px;
+  margin-bottom: 11px;
+}
+
+.card:nth-child(5n) {
+  margin-right: 0px;
+}

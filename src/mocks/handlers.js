@@ -39,12 +39,35 @@ export const handlers = [
     const dummyData = [];
     for (let i = 0; i < 50; i++) {
       dummyData[i] = {
-        name: "dummy",
-        image: "dummy-image",
-        price: "dummy-price",
+        id: i,
+        name: "리액트개발자 팝니다",
+        image:
+          "https://media.bunjang.co.kr/product/140925191_1_1635398069_w292.jpg",
+        price: 1234567890,
         time: "2022-05-09T14:58:04+09:00",
       };
     }
+    return res(
+      ctx.status(200),
+      ctx.json({
+        data: dummyData,
+      })
+    );
+  }),
+
+  rest.get("/products/0", (req, res, ctx) => {
+    const dummyData = {
+      id: 0,
+      name: "리액트개발자 팝니다",
+      image:
+        "https://media.bunjang.co.kr/product/140925191_1_1635398069_w292.jpg",
+      price: 1234567890,
+      time: "2022-05-09T14:58:04+09:00",
+      state: true,
+      area: "서울과기대 미래관",
+      exchange: false,
+    };
+
     return res(
       ctx.status(200),
       ctx.json({
