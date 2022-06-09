@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import "./Header.css";
-import appDownloadImg from "../assets/app-download-img.svg";
-import bookmarkImg from "../assets/bookmark-img.svg";
+import { useState } from "react";
+
 import logo from "../assets/logo.svg";
 import sellingProductImg from "../assets/selling-product-img.png";
 import searchImg from "../assets/search-img.png";
@@ -9,117 +7,62 @@ import menuIcon from "../assets/menu-icon.png";
 import menuIconHover from "../assets/menu-icon-hover.png";
 
 function Header() {
-  const [login, setLogin] = useState(false);
   const [isCategoryHover, setIsCategoryHover] = useState(false);
-  useEffect(() => {
-    setLogin(sessionStorage.getItem("is-authenticated"));
-  }, []);
 
   return (
-    <header className="header">
-      <div className="topbar">
-        <div className="topbar-btns">
-          <div>
-            <button className="app-download">
-              <img
-                src={appDownloadImg}
-                alt="앱다운로드"
-                width="16"
-                height="16"
+    <header className="sticky top-0 left-0 z-10 flex w-full justify-center pt-9 bg-white border-b border-neutral-100">
+      <div className="flex flex-col w-[1024px]">
+        <div className="flex items-center w-[1024px] h-[40px]">
+          <a className="flex items-center mr-[100px] w-[136px]" href="/">
+            <img src={logo} alt="번개장터 로고" />
+          </a>
+          <div className="relative border-2 border-red-500 w-[460px] h-[40px] box-border">
+            <div className="flex items-center w-full h-full px-4">
+              <input
+                className=" text-neutral-500 flex-grow"
+                type="text"
+                placeholder="상품명 입력"
               />
-              앱다운로드
-            </button>
-            <button
-              className="bookmark"
-              onClick={() => {
-                alert("Ctrl+D 키를 누르면 즐겨찾기에 추가하실 수 있습니다.");
-              }}
-            >
-              <img src={bookmarkImg} alt="즐겨찾기버튼" />
-              즐겨찾기
-            </button>
+              <a href="/">
+                <img
+                  src={searchImg}
+                  alt="검색 버튼 아이콘"
+                  width="16"
+                  height="16"
+                />
+              </a>
+            </div>
           </div>
-          <div>
-            <button
-              onClick={() => {
-                if (login) {
-                  sessionStorage.removeItem("is-authenticated");
-                  setLogin(false);
-                } else {
-                  fetch("/login", {
-                    method: "POST",
-                    mode: "cors",
-                    cache: "no-cache",
-                    credentials: "same-origin",
-                    headers: {
-                      "Content-Type": "application/json",
-                    },
-                    redirect: "follow",
-                    referrerPolicy: "no-referrer",
-                    body: JSON.stringify(),
-                  }).then(() => {
-                    setLogin(true);
-                  });
-                }
-              }}
-            >
-              {login ? "로그아웃" : "로그인/회원가입"}
-            </button>
-            <button
-              onClick={() => {
-                fetch("/user");
-              }}
-            >
-              내 정보
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="header-main">
-        <div className="main-items">
-          <img src={logo} alt="번개장터 로고" />
-          <div className="search-bar">
-            <input
-              className="search-text"
-              type="text"
-              placeholder="상품명 입력"
-            />
-            <a href="/">
+          <div className="flex justify-end flex-grow">
+            <a className="flex items-center" href="/products/new">
               <img
-                src={searchImg}
-                alt="검색 버튼 아이콘"
-                width="16"
-                height="16"
+                className="mr-1.5"
+                src={sellingProductImg}
+                alt="판매하기"
+                width="23"
+                height="26"
               />
+              판매하기
             </a>
           </div>
-
-          <a className="selling-product" href="/products/new">
-            <img
-              src={sellingProductImg}
-              alt="판매하기"
-              width="23"
-              height="26"
-            />
-            판매하기
-          </a>
         </div>
-      </div>
-
-      <div className="bottom-bar">
-        <img
-          src={isCategoryHover ? menuIconHover : menuIcon}
-          alt="카테고리 아이콘"
-          width="20"
-          height="16"
-          onMouseEnter={() => {
-            setIsCategoryHover(true);
-          }}
-          onMouseLeave={() => {
-            setIsCategoryHover(false);
-          }}
-        />
+        <div className="flex items-center h-[70px]">
+          <div className="mr-5">
+            <img
+              className="align-bottom"
+              src={isCategoryHover ? menuIconHover : menuIcon}
+              alt="카테고리 아이콘"
+              width="20"
+              height="16"
+              onMouseEnter={() => {
+                setIsCategoryHover(true);
+              }}
+              onMouseLeave={() => {
+                setIsCategoryHover(false);
+              }}
+            />
+          </div>
+        </div>
       </div>
     </header>
   );
