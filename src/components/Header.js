@@ -64,7 +64,46 @@ function Header() {
           </div>
         </div>
       </div>
+      <Sidebar />
     </header>
+  );
+}
+
+function Sidebar() {
+  const [numOfFavorites, setNumOfFavorites] = useState(0);
+
+  return (
+    <div className="absolute top-[102px] right-[calc(50%-617px)] z-20">
+      <div className="w-[90px]">
+        <div className="border border-neutral-500 p-2.5 w-full mb-2">
+          <div className="text-xs font-semibold text-neutral-500 text-center mb-2">
+            찜한상품
+          </div>
+          <div className="flex justify-center">
+            <a
+              className={`flex items-center text-xs font-semibold tracking-wider ${
+                numOfFavorites === 0
+                  ? "text-neutral-300"
+                  : "text-[rgb(247,0,0)]"
+              }`}
+              href="/favorites"
+            >
+              ♥ {numOfFavorites}
+            </a>
+          </div>
+        </div>
+        <div className="border border-neutral-200 w-full">
+          <button
+            className="flex items-center justify-center h-[40px] w-full font-semibold text-sm text-neutral-500"
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}
+          >
+            TOP
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
 
