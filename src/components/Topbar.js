@@ -5,9 +5,12 @@ import bookmarkImg from "../assets/bookmark-img.svg";
 
 function Topbar() {
   const [login, setLogin] = useState(false);
+  const [isMyShopBtnHover, setIsMyShopBtnHover] = useState(false);
+
   useEffect(() => {
     setLogin(sessionStorage.getItem("is-authenticated"));
   }, []);
+
   return (
     <div className="flex justify-center border-b border-neutral-100">
       <div className="flex justify-between items-center w-[1024px] h-[40px]">
@@ -57,22 +60,39 @@ function Topbar() {
           >
             {login ? "로그아웃" : "로그인/회원가입"}
           </button>
-          <div className="flex items-center px-4 text-sm text-neutral-500 after:content-['▾']">
+          <div
+            className="flex items-center pl-4 text-sm text-neutral-500 after:content-['▾']"
+            onMouseEnter={() => {
+              setIsMyShopBtnHover(true);
+            }}
+            onMouseLeave={() => {
+              setIsMyShopBtnHover(false);
+            }}
+          >
             <div className="relative flex items-center w-full h-full">
               <button
-                className=""
                 onClick={() => {
                   fetch("/user");
                 }}
               >
                 내 상점
               </button>
-              <div className="block absolute w-[88px] top-full left-[calc(50%-44px)] border border-neutral-100 z-20 py-4 px-5">
+              <div
+                className={`${
+                  isMyShopBtnHover ? "block" : "hidden"
+                } absolute w-[88px] top-full left-[calc(50%-44px)] border border-neutral-100 z-20 py-4 px-5 bg-white`}
+              >
                 <a
                   className=" block text-center mb-3 text-neutral-500"
                   href="/manage"
                 >
                   내 상품
+                </a>
+                <a
+                  className=" block text-center mb-3 text-neutral-500"
+                  href="/favorites"
+                >
+                  찜한 상품
                 </a>
               </div>
             </div>

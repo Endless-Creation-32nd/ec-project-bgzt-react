@@ -75,7 +75,7 @@ function Sidebar() {
   return (
     <div className="absolute top-[102px] right-[calc(50%-617px)] z-20">
       <div className="w-[90px]">
-        <div className="border border-neutral-500 p-2.5 w-full mb-2">
+        <div className="border border-neutral-500 p-2.5 w-full mb-2 bg-white">
           <div className="text-xs font-semibold text-neutral-500 text-center mb-2">
             찜한상품
           </div>
