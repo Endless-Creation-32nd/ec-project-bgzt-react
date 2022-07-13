@@ -13,11 +13,11 @@ function Topbar() {
 
   return (
     <div className="flex justify-center border-b border-neutral-100">
-      <div className="flex justify-between items-center w-[1024px] h-[40px]">
+      <div className="flex h-[40px] w-[1024px] items-center justify-between">
         <div className="flex flex-shrink-0">
           <button className="flex items-center px-4 text-sm text-neutral-500">
             <img
-              className="w-4 h-4 mr-1"
+              className="mr-1 h-4 w-4"
               src={appDownloadImg}
               alt="앱다운로드"
             />
@@ -33,7 +33,7 @@ function Topbar() {
             즐겨찾기
           </button>
         </div>
-        <div className="flex flex-shrink-0 h-full">
+        <div className="flex h-full flex-shrink-0">
           <button
             className="flex items-center px-4 text-sm text-neutral-500"
             onClick={() => {
@@ -69,7 +69,7 @@ function Topbar() {
               setIsMyShopBtnHover(false);
             }}
           >
-            <div className="relative flex items-center w-full h-full">
+            <div className="relative flex h-full w-full items-center">
               <button
                 onClick={() => {
                   fetch("/user");
@@ -80,16 +80,16 @@ function Topbar() {
               <div
                 className={`${
                   isMyShopBtnHover ? "block" : "hidden"
-                } absolute w-[88px] top-full left-[calc(50%-44px)] border border-neutral-100 z-20 py-4 px-5 bg-white`}
+                } absolute top-full left-[calc(50%-44px)] z-20 w-[88px] border border-neutral-100 bg-white py-4 px-5`}
               >
                 <a
-                  className=" block text-center mb-3 text-neutral-500"
+                  className=" mb-3 block text-center text-neutral-500"
                   href="/manage"
                 >
                   내 상품
                 </a>
                 <a
-                  className=" block text-center mb-3 text-neutral-500"
+                  className=" mb-3 block text-center text-neutral-500"
                   href="/favorites"
                 >
                   찜한 상품

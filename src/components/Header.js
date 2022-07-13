@@ -10,16 +10,16 @@ function Header() {
   const [isCategoryHover, setIsCategoryHover] = useState(false);
 
   return (
-    <header className="sticky top-0 left-0 z-10 flex w-full justify-center pt-9 bg-white border-b border-neutral-100">
-      <div className="flex flex-col w-[1024px]">
-        <div className="flex items-center w-[1024px] h-[40px]">
-          <a className="flex items-center mr-[100px] w-[136px]" href="/">
+    <header className="sticky top-0 left-0 z-10 flex w-full justify-center border-b border-neutral-100 bg-white pt-9">
+      <div className="flex w-[1024px] flex-col">
+        <div className="flex h-[40px] w-[1024px] items-center">
+          <a className="mr-[100px] flex w-[136px] items-center" href="/">
             <img src={logo} alt="번개장터 로고" />
           </a>
-          <div className="relative border-2 border-red-500 w-[460px] h-[40px] box-border">
-            <div className="flex items-center w-full h-full px-4">
+          <div className="relative box-border h-[40px] w-[460px] border-2 border-red-500">
+            <div className="flex h-full w-full items-center px-4">
               <input
-                className=" text-neutral-500 flex-grow"
+                className=" flex-grow text-neutral-500"
                 type="text"
                 placeholder="상품명 입력"
               />
@@ -33,7 +33,7 @@ function Header() {
               </a>
             </div>
           </div>
-          <div className="flex justify-end flex-grow">
+          <div className="flex flex-grow justify-end">
             <a className="flex items-center" href="/products/new">
               <img
                 className="mr-1.5"
@@ -46,7 +46,7 @@ function Header() {
             </a>
           </div>
         </div>
-        <div className="flex items-center h-[70px]">
+        <div className="flex h-[70px] items-center">
           <div className="mr-5">
             <img
               className="align-bottom"
@@ -75,8 +75,8 @@ function Sidebar() {
   return (
     <div className="absolute top-[102px] right-[calc(50%-617px)] z-20">
       <div className="w-[90px]">
-        <div className="border border-neutral-500 p-2.5 w-full mb-2 bg-white">
-          <div className="text-xs font-semibold text-neutral-500 text-center mb-2">
+        <div className="mb-2 w-full border border-neutral-500 bg-white p-2.5">
+          <div className="mb-2 text-center text-xs font-semibold text-neutral-500">
             찜한상품
           </div>
           <div className="flex justify-center">
@@ -92,9 +92,9 @@ function Sidebar() {
             </a>
           </div>
         </div>
-        <div className="border border-neutral-200 w-full">
+        <div className="w-full border border-neutral-200">
           <button
-            className="flex items-center justify-center h-[40px] w-full font-semibold text-sm text-neutral-500"
+            className="flex h-[40px] w-full items-center justify-center text-sm font-semibold text-neutral-500"
             onClick={() => {
               window.scrollTo(0, 0);
             }}
