@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import "./Card.css";
 
 function Card({ id, name, image, price, time }) {
   function getTimeDiff() {
@@ -32,7 +31,7 @@ function Card({ id, name, image, price, time }) {
   }
 
   return (
-    <div className="card">
+    <div className="block border border-neutral-200">
       <a href={`/products/${id}`}>
         <img src={image} width="194" height="194" alt="상품이미지" />
         <p>{name}</p>
