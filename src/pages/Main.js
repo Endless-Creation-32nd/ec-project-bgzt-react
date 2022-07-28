@@ -53,7 +53,7 @@ function Banner() {
     <div className="relative w-[1024px] overflow-hidden">
       <button
         className="absolute top-[45%] left-[calc(50%-515px)] z-[1] text-4xl text-neutral-300"
-        onClick={async () => {
+        onClick={() => {
           handleSwipe(-1);
         }}
       >
