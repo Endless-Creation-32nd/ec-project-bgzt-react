@@ -24,11 +24,13 @@ function Banner() {
   const transitionTime = 300;
 
   const [currentIndex, setCurrentIndex] = useState(1);
-  const [transition, setTransition] = useState(`duration-${transitionTime}`);
+  const [transitionDurationValue, setTransitionDurationValue] = useState(
+    `0.${transitionTime}s`
+  );
 
   function replaceSlide(index) {
     setTimeout(() => {
-      setTransition("");
+      setTransitionDurationValue("0s");
       setCurrentIndex(index);
     }, transitionTime);
   }
@@ -42,7 +44,7 @@ function Banner() {
       index -= data.length;
       replaceSlide(index);
     }
-    setTransition(`duration-${transitionTime}`);
+    setTransitionDurationValue(`0.${transitionTime}s`);
   }
 
   return (
@@ -64,9 +66,10 @@ function Banner() {
 
       <div>
         <div
-          className={`flex ${transition}`}
+          className={`flex`}
           style={{
             transform: `translateX(${-100 * currentIndex}%)`,
+            transitionDuration: `${transitionDurationValue}`,
           }}
         >
           {slides.map((color, index) => (
