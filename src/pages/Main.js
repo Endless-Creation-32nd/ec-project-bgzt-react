@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Card from "../components/Card";
+import Cards from "../components/Cards";
 
 function Main() {
   const [latestProducts, setLatestProducts] = useState([]);
@@ -13,11 +13,7 @@ function Main() {
     <section className="flex w-full flex-col items-center">
       <Banner />
       <h2 className="mb-6 w-[1024px] text-2xl">오늘의 상품 추천</h2>
-      <div className="flex w-[1024px] flex-wrap gap-[11px]">
-        {latestProducts.map((obj, index) => (
-          <Card key={index} {...obj} />
-        ))}
-      </div>
+      <Cards items={latestProducts} />
     </section>
   );
 }

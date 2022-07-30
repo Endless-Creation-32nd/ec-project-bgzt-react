@@ -1,5 +1,15 @@
 import dayjs from "dayjs";
 
+function Cards(props) {
+  return (
+    <div className="flex w-[1024px] flex-wrap gap-[11px]">
+      {props.items.map((obj, index) => (
+        <Card key={index} {...obj} />
+      ))}
+    </div>
+  );
+}
+
 function Card({ id, name, image, price, time }) {
   function getTimeDiff() {
     const timeDiffSec = dayjs().diff(dayjs(time), "s");
@@ -43,4 +53,4 @@ function Card({ id, name, image, price, time }) {
     </div>
   );
 }
-export default Card;
+export default Cards;
