@@ -1,19 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Cards from "../components/Cards";
 
 function Main() {
-  const [latestProducts, setLatestProducts] = useState([]);
-  useEffect(() => {
-    fetch("/latestProducts")
-      .then((res) => res.json())
-      .then((res) => setLatestProducts(res.data));
-  }, []);
-
   return (
     <section className="flex w-full flex-col items-center">
       <Banner />
       <h2 className="mb-6 w-[1024px] text-2xl">오늘의 상품 추천</h2>
-      <Cards items={latestProducts} />
+      <Cards url={`https://pokeapi.co/api/v2/pokemon/?limit=100`} />
     </section>
   );
 }

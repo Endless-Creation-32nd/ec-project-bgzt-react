@@ -35,29 +35,9 @@ export const handlers = [
     );
   }),
 
-  rest.get("/latestProducts", (req, res, ctx) => {
-    const dummyData = [];
-    for (let i = 0; i < 50; i++) {
-      dummyData[i] = {
-        id: i,
-        name: "리액트개발자 팝니다",
-        image:
-          "https://media.bunjang.co.kr/product/140925191_1_1635398069_w292.jpg",
-        price: 1234567890,
-        time: "2022-05-09T14:58:04+09:00",
-      };
-    }
-    return res(
-      ctx.status(200),
-      ctx.json({
-        data: dummyData,
-      })
-    );
-  }),
-
-  rest.get("/products/0", (req, res, ctx) => {
+  rest.get("/products/:productId", (req, res, ctx) => {
     const dummyData = {
-      id: 0,
+      id: req.productId,
       name: "리액트개발자 팝니다",
       image:
         "https://media.bunjang.co.kr/product/140925191_1_1635398069_w292.jpg",
